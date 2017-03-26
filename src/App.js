@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Router, hashHistory } from 'react-router';
+import { Route, HashRouter } from 'react-router-dom';
 import './App.css';
-import Homepage from './homepage'
+import Homepage from './pages/homepage.js'
 
 class App extends Component {
   render() {
     return (
-      <Router history={ hashHistory }>
+      <HashRouter>
         <Route path="/" component={ Homepage } />
-      </Router>
+      </HashRouter>
     );
   }
 }
