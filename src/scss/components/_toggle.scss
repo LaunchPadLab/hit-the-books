@@ -1,0 +1,29 @@
+/*-----------------------
+Toggle
+-----------------------*/
+@mixin arrow{
+  display: inline-block;
+  content:"";
+  background-image: asset-url("dropdown.svg");
+  background-repeat: no-repeat;
+  @include rem(margin-left, 5px);
+  @include transition(all 0.3s linear);
+  height: 10px;
+  width: 20px;
+  background-size: 15px;
+  opacity: 0.3;
+}
+
+.toggle{
+  text-decoration: none;
+
+  &:after{
+    @include arrow;
+  }
+
+  &.is-active{
+    &:after{
+      @include transform(rotate(180deg));
+    }
+  }
+}

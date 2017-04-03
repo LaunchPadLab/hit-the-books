@@ -1,0 +1,59 @@
+/*-----------------------
+Pie Chart
+-----------------------*/
+.pie-chart{
+  svg{
+    @include center;
+    max-width: 150px;
+    @include rem(margin-bottom, 10px);
+  }
+}
+
+/*-----------------------
+Colors
+-----------------------*/
+.color-1{
+  fill: lighten($blue-base, 0%);
+  background-color: lighten($blue-base, 0%);
+}
+.color-2{
+  fill: lighten($blue-base, 10%);
+  background-color: lighten($blue-base, 10%);
+}
+.color-3{
+  fill: lighten($blue-base, 20%);
+  background-color: lighten($blue-base, 20%);
+}
+.color-4{
+  fill: lighten($blue-base, 25%);
+  background-color: lighten($blue-base, 25%);
+}
+.color-5{
+  fill: lighten($blue-base, 30%);
+  background-color: lighten($blue-base, 30%);
+}
+
+/*-----------------------
+Legend
+-----------------------*/
+.pie-legend{
+  @include center;
+  max-width: 175px;
+
+  li{
+    text-align: left;
+  }
+
+  span{
+    display: inline-block;
+    height: 20px;
+    @include rem(margin-right, 10px);
+    width: 20px;
+  }
+
+  p{
+    display: inline-block;
+    width: calc(100% - 32px);
+    vertical-align: 5px;
+  }
+}
