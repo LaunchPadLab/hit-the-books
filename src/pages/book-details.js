@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
 class BookDetails extends Component {
-  componentWillMount() {
+  fetchCurrentBook (books) {
+    const { params } = this.props.match
+    const bookId = params.id
+    return books.find((book) => book.id === parseInt(bookId, 10))
+  }
+
+  componentWillMount () {
     const books = [
       {
         id: 1,
@@ -28,13 +34,23 @@ class BookDetails extends Component {
         seller: 'James Delgado'
       }
     ]
-    this.setState({bookList: books})
+    const book = this.fetchCurrentBook(books)
+
+    this.setState({book: book})
   }
 
-  render() {
+  render () {
+    const book = this.state.book
+
     return (
       <div>
-        <h2>Book Details</h2>
+        <h2>{ book.name }</h2>
+        <ul>
+          <li>By: { book.author }</li>
+          <li>Class: { book.class }</li>
+          <li>{ book.price }</li>
+          <li>Seller: { book.seller }</li>
+        </ul>
       </div>
     );
   }
