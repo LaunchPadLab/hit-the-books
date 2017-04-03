@@ -1,0 +1,14 @@
+.stat-block{
+  text-align: center;
+
+  &:not(:last-child){
+    border-bottom: 1px solid $white-med;
+    @include rem(margin-bottom, 30px);
+    @include rem(padding-bottom, 30px);
+  }
+
+  span{
+    @include s-giga;
+    color: $grey-base;
+  }
+}

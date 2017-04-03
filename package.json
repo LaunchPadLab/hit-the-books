@@ -10,6 +10,7 @@
   "devDependencies": {
     "bourbon": "^4.3.4",
     "bourbon-neat": "^2.0.0",
+    "eyeglass": "^1.2.1",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-scripts": "0.9.5"

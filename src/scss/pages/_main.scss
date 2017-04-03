@@ -1,0 +1,124 @@
+[class*=-block-container]{
+  @include base-padding;
+  //@include outer-container;
+  display: inline-block;
+  width: calc(100% - 245px);
+}
+
+@keyframes fade-in{
+  0%{ opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+@keyframes fade-out{
+  0%{ opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+hr{
+  border: none;
+  border-bottom: 1px solid $white-med;
+}
+
+
+/*-----------------------
+Card
+-----------------------*/
+.card{
+  background-color: $white-base;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(173,173,173,0.50);
+  @include rem(padding, 20px);
+
+  @include media($tablet){
+    @include rem(padding, 40px);
+  }
+
+  &.adjust-padding{
+    @include rem(padding, 3px 20px 20px);
+
+    @include media($tablet){
+      @include rem(padding, 23px 40px 40px);
+    }
+  }
+}
+
+
+/*-----------------------
+Content
+-----------------------*/
+.content{
+  display: inline-block;
+  @include animation(fade-in 0.5s ease-in);
+  margin-top: $desktop-nav-height;
+  position: relative;
+  width: 100%;
+
+  .header-content{
+    @include rem(padding, 0px);
+
+    @include media($tablet){
+      @include rem(padding, 0px);
+    }
+  }
+
+
+ .header-block-container{
+    @include rem(padding, 12px 20px);
+
+    @include media($tablet){
+      @include rem(padding, 12px 30px);
+    }
+  }
+
+  .content-block-container, .header-block-container{
+    display: block;
+    @include outer-container;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .content-block-container{
+    .card:not(:first-child){
+      @include rem(margin-top, 30px);
+    }
+  }
+
+  &.with-sidebar{
+    margin-left: $side-navigation;
+    width: calc(100% - 245px);
+
+    .header-content{
+      //@include rem(padding, 12px 30px);
+      width: 100%;
+    }
+
+    .content-block-container{
+      width: 100%;
+
+      .card{
+        max-width: 700px;
+      }
+    }
+  }
+
+  &.centered{
+    @include rem(margin, 30px 10px);
+    margin-top: $desktop-nav-height;
+    width: calc(100% - 22px);
+
+    .card{
+      @include center;
+      max-width: 600px;
+      @include rem(margin, 30px auto 20px);
+    }
+  }
+}
+
+
+/*-----------------------
+Centered Block
+-----------------------*/
+.centered-block{
+  text-align: center;
+}

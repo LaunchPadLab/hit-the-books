@@ -1,0 +1,95 @@
+$side-navigation: 245px;
+
+.side-navigation{
+  background-color: $white-base;
+  box-shadow: 0 0 18px 0 rgba(232,232,232,0.50);
+  @include position(fixed, 0px null 0px 0px);
+  @include rem(padding, 0px 30px 30px);
+  overflow: scroll;
+  margin-top: $desktop-nav-height;
+  width: $side-navigation;
+  z-index: 1;
+
+  h5{
+    border-bottom: 1px solid $white-med;
+    color: $blue-base;
+    @include rem(padding, 21px 0px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  a{
+    display: inline-block;
+    @include font-type($secondary-sans-serif, normal, $bold);
+    @include rem(margin-bottom, 10px);
+    @include s-base;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+
+    &.is-active{
+      color: $blue-base;
+    }
+  }
+}
+
+/*-----------------------
+Nested
+-----------------------*/
+.is-nested{
+  position: relative;
+
+  &:after{
+    border-left: 1px solid $white-med;
+    content: "";
+    height: calc(100% - 55px);
+    @include position(absolute, 30px null null 0px);
+  }
+
+  &.is-active{
+    a:after{
+      @include transform(rotate(180deg));
+    }
+
+    ul{
+      display: block;
+    }
+  }
+
+  a{
+    width: calc(100% - 20px);
+
+    &:after{
+      background-image: asset-url("dropdown.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 15px;
+      content:"";
+      display: inline-block;
+      opacity: 0.3;
+      height: 15px;
+      width: 25px;
+      @include position(absolute, 3px -8px null null);
+    }
+  }
+
+  ul{
+    display: none;
+
+    li a:after{
+      display: none;
+    }
+  }
+
+  li{
+    &:before{
+      display: inline-block;
+      content: "";
+      border-bottom: 1px solid $white-med;
+      @include rem(margin-right, 5px);
+      width: 14px;
+      vertical-align: super;
+    }
+  }
+}

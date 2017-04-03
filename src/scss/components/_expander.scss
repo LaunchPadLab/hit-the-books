@@ -1,0 +1,43 @@
+/*-----------------------
+Expander
+-----------------------*/
+.expander {
+  .expander-trigger {
+    background-color: $blue-light;
+    display: block;
+    @include rem(padding, 10px 20px);
+    text-decoration: none;
+    @include rem(margin, 0px -20px);
+
+    @include media($tablet){
+      @include rem(margin, 0px -40px);
+      @include rem(padding, 10px 40px);
+    }
+
+    &:before {
+      content: "+";
+      border: 1px solid $grey-base;
+      border-radius: 50%;
+      height: 34px;
+      width: 34px;
+      display: inline-block;
+      text-align: center;
+      line-height: 2;
+      @include rem(margin-right, 10px);
+    }
+  }
+
+  .expander-content{
+    display: none;
+  }
+
+  .is-active {
+    &:before {
+      content: "–";
+    }
+  }
+
+  .is-active + .expander-content {
+    display: block;
+  }
+}
