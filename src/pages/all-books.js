@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class AllBooks extends Component {
   componentWillMount() {
@@ -39,7 +40,12 @@ class AllBooks extends Component {
         <ul>
           {
             bookList.map(book => {
-              return <li key={book.id}>{book.name} ({book.price})</li>
+              const bookLink = `/book-details/${book.id}`
+              return (
+                <li key={book.id}>
+                  <Link to={bookLink}>{book.name}</Link> ({book.price})
+                </li>
+              );
             })
           }
         </ul>
