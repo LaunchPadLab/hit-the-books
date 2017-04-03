@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
 import Homepage from './pages/homepage.js'
 import AllBooks from './pages/all-books.js'
+import BookDetails from './pages/book-details.js'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           </header>
           <Route path="/home" component={ Homepage }/>
           <Route path="/all-books" component={ AllBooks }/>
+          <Route path="/book-details/:id" component={ BookDetails }/>
         </div>
       </BrowserRouter>
     );
