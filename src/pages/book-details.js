@@ -1,42 +1,16 @@
 import React, { Component } from 'react';
 
 class BookDetails extends Component {
-  fetchCurrentBook (books) {
+  fetchCurrentBook () {
     const { params } = this.props.match
     const bookId = params.id
-    return books.find((book) => book.id === parseInt(bookId, 10))
+    const bookList = JSON.parse(localStorage.getItem('bookList'))
+    return bookList.find((book) => book.id === parseInt(bookId, 10))
   }
 
   componentWillMount () {
-    const books = [
-      {
-        id: 1,
-        name: 'A Tale of Two Cities',
-        author: 'Charles Dickens',
-        class: 'ENGL101',
-        price: '$12.00',
-        seller: 'Wade Novak'
-      },
-      {
-        id: 2,
-        name: 'Intro to the Periodic Table of Elements',
-        author: 'Jessica Shaw',
-        class: 'CHEM105',
-        price: '$55.00',
-        seller: 'Sally Smith'
-      },
-      {
-        id: 3,
-        name: 'Bossanova in the Brazillan Era',
-        author: 'Joao Gilberto',
-        class: 'MUSIC333',
-        price: '$25.00',
-        seller: 'James Delgado'
-      }
-    ]
-    const book = this.fetchCurrentBook(books)
-
-    this.setState({book: book})
+    const book = this.fetchCurrentBook()
+    this.setState({ book: book })
   }
 
   render () {
@@ -44,13 +18,20 @@ class BookDetails extends Component {
 
     return (
       <div>
-        <h2>{ book.name }</h2>
+        <h2>{ book.title }</h2>
         <ul>
-          <li>By: { book.author }</li>
-          <li>Class: { book.class }</li>
-          <li>{ book.price }</li>
-          <li>Seller: { book.seller }</li>
+          <li>Author(s): { book.author }</li>
+          <li>ISBN: { book.isbn }</li>
+          <li>Course: { book.course }</li>
+          <li>Description: { book.description }</li>
+          <li>Seller Name: { book.sellerName }</li>
         </ul>
+
+        <div>
+          <h2>Interested?</h2>
+          <p>Negotiate your price and get the book you need fast.</p>
+          <a href={`mailto:${book.sellerEmail}`}>Contact Seller</a>
+        </div>
       </div>
     );
   }
