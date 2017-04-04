@@ -5,30 +5,36 @@ class AllBooks extends Component {
     const books = [
       {
         id: 1,
-        name: 'A Tale of Two Cities',
+        title: 'A Tale of Two Cities',
         author: 'Charles Dickens',
-        class: 'ENGL101',
-        price: '$12.00',
-        seller: 'Wade Novak'
+        isbn: '9781534968998',
+        course: 'ENGL101',
+        sellerName: 'Wade Novak',
+        sellerEmail: 'wade@launchpadlab.com',
+        description: 'A Tale of Two Cities is a novel by Charles Dickens, set in London and Paris before and during the French Revolution.'
       },
       {
         id: 2,
-        name: 'Intro to the Periodic Table of Elements',
+        title: 'Intro to the Periodic Table of Elements',
         author: 'Jessica Shaw',
-        class: 'CHEM105',
-        price: '$55.00',
-        seller: 'Sally Smith'
+        isbn: '1111111111111',
+        course: 'CHEM105',
+        sellerName: 'Sally Smith',
+        sellerEmail: 'sally@example.com',
+        description: 'An introduction to the periodic table of elements for chemistry students.'
       },
       {
         id: 3,
-        name: 'Bossanova in the Brazillan Era',
+        title: 'Bossanova in the Brazilian Era',
         author: 'Joao Gilberto',
-        class: 'MUSIC333',
-        price: '$25.00',
-        seller: 'James Delgado'
+        isbn: '2222222222222',
+        course: 'MUSIC333',
+        sellerName: 'James Delgado',
+        sellerEmail: 'james@example.com',
+        description: 'Introduces the Bossanova, which is today one of the best-known Brazilian music genres abroad.'
       }
     ]
-    this.setState({bookList: books})
+    this.setState({ bookList: books })
   }
 
   render() {
