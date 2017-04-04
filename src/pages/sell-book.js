@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import LocalStorageMixin from 'react-localstorage'
 
 class SellBook extends Component {
-  mixins: [LocalStorageMixin]
-
   constructor (props) {
     super(props)
 
+    const bookList = JSON.parse(localStorage.getItem('bookList'))
+    const lastItemId = bookList[bookList.length-1].id
     this.state = {
       book: {
+        id: lastItemId + 1,
         title: '',
         author: '',
         course: '',
@@ -37,7 +37,8 @@ class SellBook extends Component {
 
   submitBook(event) {
     event.preventDefault()
-    console.log(this.state)
+    console.log(this.state.book)
+
   }
 
   render() {
