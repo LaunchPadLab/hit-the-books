@@ -67,8 +67,8 @@ class App extends Component {
           <Route path="/book-details/:id" component={ BookDetails }/>
         </div>
       </BrowserRouter>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class AllBooks extends Component {
   componentWillMount() {
@@ -25,8 +25,8 @@ class AllBooks extends Component {
           }
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default AllBooks;
+export default AllBooks

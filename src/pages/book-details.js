@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class BookDetails extends Component {
   fetchCurrentBook () {
@@ -33,8 +33,8 @@ class BookDetails extends Component {
           <a href={`mailto:${book.sellerEmail}`}>Contact Seller</a>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default BookDetails;
+export default BookDetails
