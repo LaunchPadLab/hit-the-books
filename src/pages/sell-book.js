@@ -10,7 +10,7 @@ class SellBook extends Component {
     this.state = {
       book: {
         title: '',
-        authors: '',
+        author: '',
         course: '',
         isbn: '',
         sellerName: '',
@@ -53,8 +53,8 @@ class SellBook extends Component {
           <input type="text" name="sellerEmail" value={book.sellerEmail} onChange={this.handleInputChange} />
           <label for="title">Book Title</label>
           <input type="text" name="title" value={book.title} onChange={this.handleInputChange} />
-          <label for="authors">Author(s)</label>
-          <input type="text" name="authors" value={book.author} onChange={this.handleInputChange} />
+          <label for="author">Author(s)</label>
+          <input type="text" name="author" value={book.author} onChange={this.handleInputChange} />
           <label for="isbn">ISBN</label>
           <input type="text" name="isbn" value={book.course} onChange={this.handleInputChange} />
           <label for="course">Course</label>

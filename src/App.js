@@ -6,6 +6,10 @@ import AllBooks from './pages/all-books.js'
 import SellBook from './pages/sell-book.js'
 
 class App extends Component {
+  componentWillMount() {
+    
+  }
+
   render() {
     return (
       <BrowserRouter>
