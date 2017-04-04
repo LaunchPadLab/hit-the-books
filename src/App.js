@@ -10,7 +10,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <header>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
             <nav>
               <ul>
                 <li><Link to="/all-books">View Books</Link></li>
@@ -18,7 +18,7 @@ class App extends Component {
               </ul>
             </nav>
           </header>
-          <Route path="/home" component={ Homepage }/>
+          <Route exact path="/" component={ Homepage }/>
           <Route path="/all-books" component={ AllBooks }/>
         </div>
       </BrowserRouter>

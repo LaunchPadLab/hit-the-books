@@ -45,7 +45,7 @@ class AllBooks extends Component {
         <ul>
           {
             bookList.map(book => {
-              return <li key={book.id}>{book.name} ({book.price})</li>
+              return <li key={book.id}>{book.title} ({book.author})</li>
             })
           }
         </ul>
