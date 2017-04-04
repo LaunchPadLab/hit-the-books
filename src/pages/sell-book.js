@@ -29,8 +29,7 @@ class SellBook extends Component {
   }
 
   handleInputChange (event) {
-    const { target } = event
-    const { name, value } = target
+    const { name, value } = event.target
     const { newBook } = this.state
 
     this.setState({
