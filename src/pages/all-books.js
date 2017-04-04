@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class AllBooks extends Component {
   componentWillMount() {
@@ -50,8 +50,8 @@ class AllBooks extends Component {
           }
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default AllBooks;
+export default AllBooks
