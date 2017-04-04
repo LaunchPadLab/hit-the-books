@@ -39,8 +39,12 @@ class App extends Component {
         description: 'Introduces the Bossanova, which is today one of the best-known Brazilian music genres abroad.'
       }
     ]
+    const existingBooks = JSON.parse(localStorage.getItem('bookList'))
 
-    localStorage.setItem('bookList', JSON.stringify(books))
+    let booksToAdd = books
+    if (existingBooks) booksToAdd = existingBooks
+
+    localStorage.setItem('bookList', JSON.stringify(booksToAdd))
   }
 
   render() {
