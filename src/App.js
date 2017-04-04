@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Route, BrowserRouter, Link } from 'react-router-dom';
-import './App.css';
+import React, { Component } from 'react'
+import { Route, BrowserRouter, Link } from 'react-router-dom'
+import './App.css'
 import Homepage from './pages/homepage.js'
 import AllBooks from './pages/all-books.js'
 import SellBook from './pages/sell-book.js'
