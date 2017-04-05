@@ -5,6 +5,7 @@ import Homepage from './pages/homepage.js'
 import AllBooks from './pages/all-books.js'
 import SellBook from './pages/sell-book.js'
 import BookDetails from './pages/book-details.js'
+import SearchBooks from './pages/search-books.js'
 import { bookData } from './book-data'
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
               <ul>
                 <li><Link to="/all-books">View Books</Link></li>
                 <li><Link to="/sell-book">Sell Books</Link></li>
+                <li><Link to="/search">Buy Books</Link></li>
               </ul>
             </nav>
           </header>
@@ -32,6 +34,7 @@ class App extends Component {
           <Route path="/all-books" component={ AllBooks }/>
           <Route path="/sell-book" component={ SellBook }/>
           <Route path="/book-details/:id" component={ BookDetails }/>
+          <Route path="/search" component={ SearchBooks }/>
         </div>
       </BrowserRouter>
     )
