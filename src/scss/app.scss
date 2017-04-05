@@ -1,32 +1,21 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-
-  p{
-    color: blue;
-  }
-}
-
 // Imports
- @import "bourbon";
- @import "neat";
+@import "bourbon";
+@import "neat";
 
 // Settings
- @import "settings/settings";
+@import "settings/settings";
 
 
- // Base Styles
- @import "base/typography";
+// Base Styles
+@import "base/typography";
 
 
- // Components List
- @import "components/buttons";
- @import "components/navigation";
- @import "components/forms";
- @import "components/grid";
+// Components List
+@import "components/buttons";
+@import "components/navigation";
+@import "components/side-navigation";
+@import "components/forms";
+@import "components/grid";
 
-
-
- // Page Styles
- @import "pages/main";
+// Page Styles
+@import "pages/main";

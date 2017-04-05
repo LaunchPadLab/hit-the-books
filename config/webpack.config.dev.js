@@ -9,6 +9,8 @@ var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeMod
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
 
+
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 var publicPath = '/';
@@ -91,24 +93,24 @@ module.exports = {
       }
     ],
     loaders: [
-      // ** ADDING/UPDATING LOADERS **
-      // The "url" loader handles all assets unless explicitly excluded.
-      // The `exclude` list *must* be updated with every change to loader extensions.
-      // When adding a new loader, you must add its `test`
-      // as a new entry in the `exclude` list for "url" loader.
-
-      // "url" loader embeds assets smaller than specified size as data URLs to avoid requests.
-      // Otherwise, it acts like the "file" loader.
+      // Default loader: load all assets that are not handled
+      // by other loaders with the url loader.
+      // Note: This list needs to be updated with every change of extensions
+      // the other loaders match.
+      // E.g., when adding a loader for a new supported file extension,
+      // we need to add the supported extension to this loader too.
+      // Add one new line in `exclude` for each loader.
+      //
+      // "file" loader makes sure those assets get served by WebpackDevServer.
+      // When you `import` an asset, you get its (virtual) filename.
+      // In production, they would get copied to the `build` folder.
+      // "url" loader works like "file" loader except that it embeds assets
+      // smaller than specified limit in bytes as data URLs to avoid requests.
+      // A missing `test` is equivalent to a match.
       {
         exclude: [
           /\.html$/,
-          // We have to write /\.(js|jsx)(\?.*)?$/ rather than just /\.(js|jsx)$/
-          // because you might change the hot reloading server from the custom one
-          // to Webpack's built-in webpack-dev-server/client?/, which would not
-          // get properly excluded by /\.(js|jsx)$/ because of the query string.
-          // Webpack 2 fixes this, but for now we include this hack.
-          // https://github.com/facebookincubator/create-react-app/issues/1713
-          /\.(js|jsx)(\?.*)?$/,
+          /\.(js|jsx)$/,
           /\.css$/,
           /\.scss$/,
           /\.json$/,
@@ -135,30 +137,18 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader",
-            options: {
-                includePaths: [paths.bourbon[0], paths.bourbonNeat[0]]
-            }
-          }
-        ]
+        includePaths: paths.appSrc,
+        loaders: ["style", "css", "sass"]
       },
       // "postcss" loader applies autoprefixer to our CSS.
       // "css" loader resolves paths in CSS and adds assets as dependencies.
       // "style" loader turns CSS into JS modules that inject <style> tags.
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
-      {
-        test: /\.css$/,
-        loader: 'style!css?importLoaders=1!postcss'
-      },
+      // {
+      //   test: /\.css$/,
+      //   loader: 'style!css?importLoaders=1!postcss'
+      // },
       // JSON is not enabled by default in Webpack but both Node and Browserify
       // allow it implicitly so we also enable it.
       {
@@ -173,14 +163,15 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]'
         }
       }
-      // ** STOP ** Are you adding a new loader?
-      // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]
   },
 
-  // sassLoader: {
-  //   includePaths: paths.bourbon
-  // },
+  sassLoader: {
+    includePaths: [
+      ...paths.bourbonNeat,
+      ...paths.bourbon
+    ]
+  },
 
   // We use PostCSS for autoprefixing only.
   postcss: function() {
