@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class BookDetails extends Component {
   fetchCurrentBook () {
@@ -18,6 +19,7 @@ class BookDetails extends Component {
 
     return (
       <div>
+        <Link to="/search">Back to Search</Link>
         <h2>{ book.title }</h2>
         <ul>
           <li>Author(s): { book.author }</li>
