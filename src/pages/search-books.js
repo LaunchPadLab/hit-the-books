@@ -12,23 +12,27 @@ class SearchBooks extends Component {
       query: ''
     }
 
+    this.handleChange = this.handleChange.bind(this)
     this.search = this.search.bind(this)
   }
 
-  search (event) {
-    const { allBooks } = this.state
+  handleChange (event) {
     const { value } = event.target
     const loweredValue = value.toLowerCase()
-    let queryResult = []
+    this.search(loweredValue)
+  }
 
-    allBooks.forEach((book) => {
+  search (query) {
+    const { allBooks } = this.state
+
+    const queryResult = allBooks.filter((book) => {
       const { title } = book
-      if (title.toLowerCase().indexOf(loweredValue) !== -1 ) queryResult.push(book)
+      return title.toLowerCase().includes(query)
     })
 
     this.setState({
       filteredBooks: queryResult,
-      query: value
+      query: query
     })
   }
 
@@ -41,7 +45,7 @@ class SearchBooks extends Component {
           placeholder="What are you looking for?"
           style={{ width: '200px' }}
           value={query}
-          onChange={this.search}
+          onChange={this.handleChange}
         />
 
         <ul>
