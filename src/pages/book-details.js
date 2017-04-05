@@ -15,24 +15,32 @@ class BookDetails extends Component {
   }
 
   render () {
-    const book = this.state.book
+    const {
+      title,
+      author,
+      isbn,
+      course,
+      description,
+      sellerName,
+      sellerEmail
+    } = this.state.book
 
     return (
       <div>
         <Link to="/search">Back to Search</Link>
-        <h2>{ book.title }</h2>
+        <h2>{ title }</h2>
         <ul>
-          <li>Author(s): { book.author }</li>
-          <li>ISBN: { book.isbn }</li>
-          <li>Course: { book.course }</li>
-          <li>Description: { book.description }</li>
-          <li>Seller Name: { book.sellerName }</li>
+          <li>Author(s): { author }</li>
+          <li>ISBN: { isbn }</li>
+          <li>Course: { course }</li>
+          <li>Description: { description }</li>
+          <li>Seller Name: { sellerName }</li>
         </ul>
 
         <div>
           <h2>Interested?</h2>
           <p>Negotiate your price and get the book you need fast.</p>
-          <a href={`mailto:${book.sellerEmail}`}>Contact Seller</a>
+          <a href={`mailto:${sellerEmail}`}>Contact Seller</a>
         </div>
       </div>
     )
