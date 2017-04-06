@@ -14,7 +14,7 @@ Labels
 label{
   color: $grey-base;
   display: inline-block;
-  @include font-type($primary-sans-serif, normal, 700);
+  @include font-type($secondary-sans-serif, normal, 700);
   @include s-base;
   @include rem(margin-bottom, 6px);
 
@@ -36,9 +36,9 @@ textarea{
   box-sizing: border-box;
   @include appearance(none);
   @include transition (all 0.3s ease-in-out);
-  @include font-type($primary-sans-serif, normal, 400);
+  @include font-type($secondary-sans-serif, normal, 400);
   @include s-base;
-  @include rem(padding, 8px);
+  @include rem(padding, 11px 8px);
   width: 100%;
   -webkit-font-smoothing: antialiased;
 
@@ -345,7 +345,7 @@ Button Area
     width: 100%;
 
     @include media($tablet){
-      width: inherit;
+      width: 50%;
     }
   }
 

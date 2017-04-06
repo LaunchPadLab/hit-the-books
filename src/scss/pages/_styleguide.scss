@@ -2,9 +2,6 @@
 Styleguide
 -----------------------*/
 .styleguide{
-  .styleguide-fields fieldset{
-    margin-top: 0px;
-  }
 
   h5:not(:first-child){
     @include rem(margin-top, 20px);

@@ -3,14 +3,13 @@
 
 // Main Button
 @mixin button{
-  border-radius: 20em;
+  border-radius: 3px;
   box-shadow: 0 0 18px 0 rgba(180,180,180,0.50);
   display: inline-block;
-  @include font-type($primary-sans-serif, normal, $bold);
+  @include font-type($secondary-sans-serif, normal, $bold);
   @include rem(padding, 10px);
   @include s-base;
   @include transition (all 0.3s ease-in-out);
-  letter-spacing: 0.5px;
   line-height: normal;
   min-width: 170px;
   position: relative;
@@ -127,7 +126,7 @@
     color: $bg-1;
     display: inline-block;
     @include s-base;
-    @include font-type($primary-sans-serif, normal, $bold);
+    @include font-type($secondary-sans-serif, normal, $bold);
     @include transition(all 0.3s ease-in-out);
     @include rem(margin-top, 15px);
     @include rem(padding-bottom, 3px);
@@ -139,6 +138,18 @@
   }
 }
 
+.back-link{
+  @include rem(margin-bottom, 20px);
+  display: inline-block;
+  text-decoration: none;
+
+  &:before{
+    content: "\2190";
+    display: inline-block;
+    @include rem(margin-right, 5px);
+  }
+
+}
 
 // Buton Sizes
 .button-small {
@@ -151,3 +162,4 @@
 .button-large {
    @include rem(padding, 15px 12px);
 }
+

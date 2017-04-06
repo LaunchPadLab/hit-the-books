@@ -9,27 +9,25 @@ table{
   width: 100%;
 
   th, td {
+    color: $black-base;
     display: table-cell;
     @include rem(margin, 15px 5px);
-    @include rem(padding, 12px 10px);
+    @include rem(padding, 12px 10px 12px 0px);
     @include s-base;
     text-align: left;
-    white-space: nowrap;
+    line-height: 1.5;
     width: inherit;
-    vertical-align: middle;
+    vertical-align: top;
+
+    &:first-child{
+      width: 120px;
+    }
   }
 
   th, td:before {
     color: $grey-base;
     font-weight: $bold;
     @include s-base;
-  }
-
-  td{
-    max-width: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   th{
@@ -49,59 +47,3 @@ table{
     }
   }
 }
-
-/*-----------------------
-Filter Table Arrows
------------------------*/
-
-th{
-  &:after{
-    display: inline-block;
-    font-size: 12px;
-    @include rem(margin-left, 10px);
-    opacity: 0.4;
-  }
-
-  &:hover:after{
-    @include arrow;
-    background-image: asset-url("dropdown-white.svg");
-    opacity: 0.6;
-  }
-
-  .order-ascend{
-    &:after{
-      @include arrow;
-      background-image: asset-url("dropdown-white.svg");
-      opacity: 0.6;
-      @include transform(scaleY(-1));
-      filter: FlipV;
-      -ms-filter: “FlipV”;
-    }
-
-    &:hover:after{
-      @include transform(scaleY(1));
-      filter: FlipV;
-      -ms-filter: “FlipV”;
-    }
-  }
-
-  .order-descend{
-    &:after{
-      @include arrow;
-      background-image: asset-url("dropdown-white.svg");
-      opacity: 0.6;
-    }
-
-    &:hover:after{
-      @include transform(scaleY(-1));
-      filter: FlipV;
-      -ms-filter: “FlipV”;
-    }
-  }
-}
-
-//Dot
-td span.dot{
-  vertical-align: 1px;
-}
-

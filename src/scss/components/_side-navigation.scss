@@ -13,7 +13,9 @@ $side-navigation: 245px;
   h5{
     border-bottom: 1px solid $white-med;
     color: $blue-base;
+    @include font-type($secondary-sans-serif, normal, $bold);
     @include rem(padding, 21px 0px);
+    @include rem(margin-bottom, 20px);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

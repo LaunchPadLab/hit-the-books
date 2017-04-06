@@ -11,8 +11,13 @@ $desktop-nav-height: 70px;
   position: relative;
   text-align: center;
   width: 100%;
-}
 
+  .content-block-container{
+    @include rem(padding, 0px 10px);
+    max-width: 1160px;
+    width: 100%;
+  }
+}
 
 /*-----------------------
 Logo
@@ -20,7 +25,6 @@ Logo
 .logo{
   color: $white-base;
   @include rem(margin-bottom, 0px);
-  text-transform: uppercase;
   text-decoration: none;
   margin-top: 5px;
 
@@ -55,110 +59,23 @@ Primary Nav
 
   li{
     display: inline-block;
-    @include rem(margin, 0 0 0 25px);
     text-transform: uppercase;
     vertical-align: top;
-
-    &:last-child{
-      &:before{
-        border-left: 1px solid $white-base;
-        content: "";
-        display: inline-block;
-        height: 27px;
-        @include rem(margin-right, 25px);
-        opacity: 0.6;
-        vertical-align: middle;
-      }
-
-      a:after{
-        content: "";
-        cursor: pointer;
-        display: inline-block;
-        background-image: asset-url("dropdown-white.svg");
-        background-repeat: no-repeat;
-        background-size: 15px;
-        height: 10px;
-        @include rem(margin-left, 10px);
-        width: 20px;
-        vertical-align: middle;
-      }
-    }
 
     a{
       color: $white-base;
       @include s-small;
+      @include rem(padding, 25px 20px 23px);
       text-decoration: none;
 
       &:hover{
         opacity: 0.6;
       }
-    }
 
-  }
-}
-
-/*-----------------------
-Dropdown
------------------------*/
-.submenu{
-  background-color: $white-base;
-  box-shadow: 0 0 18px 0 rgba(232,232,232,0.50);
-  @include animation(fade-in 0.2s ease-in);
-  @include rem(margin-top, 10px);
-
-  li a{
-    @include s-small;
-    @include rem(padding, 5px 15px);
-
-    &:hover{
-      color: $blue-base;
-    }
-  }
-}
-
-.hover-menu {
-  display: inline-block;
-  @include rem(padding-bottom, 25px);
-  overflow: visible;
-  padding-right: 0;
-  position: relative;
-
-  .submenu {
-    display: none;
-    @include position(absolute, 30px 0px null null);
-    padding-left: 0;
-    z-index: 3;
-  }
-
-  .submenu li {
-    display: block;
-    margin: 0;
-    padding-right: 0;
-
-    &:before{
-      display: none;
-    }
-
-    a{
-      color: $grey-dark;
-      display: inline-block;
-      text-align: right;
-      width: 185px;
-
-      &:hover{
-        color: $blue-base;
-        opacity: 1;
-      }
-
-      &:after{
-        display: none;
+      &.is-active{
+        background-color: darken($blue-base, 5%);
       }
     }
-  }
 
-
-  &:focus > .submenu,
-  &:hover > .submenu {
-    display: block;
   }
 }

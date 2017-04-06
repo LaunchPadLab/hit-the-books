@@ -33,14 +33,6 @@ Card
   @include media($tablet){
     @include rem(padding, 40px);
   }
-
-  &.adjust-padding{
-    @include rem(padding, 3px 20px 20px);
-
-    @include media($tablet){
-      @include rem(padding, 23px 40px 40px);
-    }
-  }
 }
 
 
@@ -76,12 +68,6 @@ Content
     @include outer-container;
     margin: 0 auto;
     width: 100%;
-  }
-
-  .content-block-container{
-    .card:not(:first-child){
-      @include rem(margin-top, 30px);
-    }
   }
 
   &.with-sidebar{
@@ -120,5 +106,63 @@ Content
 Centered Block
 -----------------------*/
 .centered-block{
+  text-align: center;
+}
+
+
+/*-----------------------
+Book List
+-----------------------*/
+.search-block{
+  background-color: $white-base;
+
+  label{
+    @include s-small;
+    opacity: 0.5;
+  }
+
+  input{
+    @include font-type($primary-serif, normal, $bold);
+    border: none;
+    @include s-big;
+    padding: 0px;
+  }
+}
+
+.book-list{
+  .book-preview{
+    @include rem(margin-bottom, 20px);
+    position: relative;
+
+    @include media($tablet-landscape){
+      @include span-columns(6 of 12);
+      @include omega(2n);
+      height: 135px;
+    }
+
+    a{
+      @include media($tablet-landscape){
+        display: inline-block;
+        float: right;
+        min-width: 0px;
+        width: 32%;
+      }
+    }
+
+    .text-block{
+      @include media($tablet-landscape){
+        display: inline-block;
+        @include rem(padding-right, 20px);
+        @include vertical-center;
+        width: 57%;
+      }
+    }
+  }
+}
+
+/*-----------------------
+Book Details
+-----------------------*/
+.interested{
   text-align: center;
 }
