@@ -4,12 +4,12 @@ class SellBook extends Component {
   constructor (props) {
     super(props)
 
-    this.state = this.getState()
+    this.state = this.getEmptyState()
     this.handleInputChange = this.handleInputChange.bind(this)
     this.submitBook = this.submitBook.bind(this)
   }
 
-  getState () {
+  getEmptyState () {
     const bookList = JSON.parse(localStorage.getItem('bookList'))
     const { id } = bookList[bookList.length-1]
 
@@ -29,8 +29,7 @@ class SellBook extends Component {
   }
 
   handleInputChange (event) {
-    const { target } = event
-    const { name, value } = target
+    const { name, value } = event.target
     const { newBook } = this.state
 
     this.setState({
@@ -47,7 +46,7 @@ class SellBook extends Component {
     const { newBook, bookList } = this.state
     bookList.push(newBook)
     localStorage.setItem('bookList', JSON.stringify(bookList))
-    this.setState(this.getState())
+    this.setState(this.getEmptyState())
   }
 
   render () {
