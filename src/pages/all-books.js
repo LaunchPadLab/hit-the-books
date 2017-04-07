@@ -10,20 +10,22 @@ class AllBooks extends Component {
   render() {
     const bookList = this.state.bookList
     return (
-      <div>
-        <h2>All Books</h2>
-        <ul>
+      <div className="content">
+        <div className="book-list">
           {
             bookList.map(book => {
               const bookLink = `/book-details/${book.id}`
               return (
-                <li key={book.id}>
-                  <Link to={bookLink}>{book.title}</Link> ({book.author})
-                </li>
-              );
+                <div key={book.id} className="card book-preview">
+                  <div className="text-block">
+                    <Link to={bookLink}><h2>{book.title}</h2></Link>
+                    <p>Author(s): {book.author}</p>
+                  </div>
+                </div>
+              )
             })
           }
-        </ul>
+        </div>
       </div>
     )
   }
