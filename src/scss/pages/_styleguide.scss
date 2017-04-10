@@ -1,0 +1,76 @@
+/*-----------------------
+Styleguide
+-----------------------*/
+.styleguide{
+
+  h5:not(:first-child){
+    @include rem(margin-top, 20px);
+  }
+
+  .styleguide-sidebar{
+    .side-navigation{
+      margin-top: 0px;
+      position: relative;
+    }
+  }
+  .styleguide-header{
+    .navigation{
+      position: relative;
+      z-index: 0;
+    }
+  }
+
+  &.content{
+    &.with-sidebar{
+      .content-block-container{
+        .card{
+          @include media($tablet-landscape){
+            float: none;
+            max-width: none;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .card .content-container{
+    width: 100%;
+  }
+
+  .content-container.with-horizontal-cards{
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+
+    .horizontal-cards{
+      min-height: 0px;
+    }
+  }
+}
+
+.code-header{
+  border-bottom: 1px solid $white-med;
+  @include rem(margin-bottom, 20px);
+  @include rem(padding-bottom, 20px);
+
+  &:not(:first-child){
+    @include rem(margin-top, 60px);
+  }
+}
+
+xmp{
+  background-color: rgba(lighten($blue-base, 35%), 0.5);
+  @include rem(padding, 20px);
+  white-space: pre-wrap;
+}
+
+
+.styleguide-flash{
+  height: 50px;
+
+  .flash-message {
+    position: relative;
+    z-index: 0;
+  }
+}
