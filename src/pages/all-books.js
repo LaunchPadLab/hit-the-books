@@ -10,7 +10,7 @@ class AllBooks extends Component {
   render() {
     const bookList = this.state.bookList
     return (
-      <div className="content">
+      <div className="content content-block-container">
         <div className="book-list">
           {
             bookList.map(book => {
