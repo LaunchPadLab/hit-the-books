@@ -53,25 +53,43 @@ class SellBook extends Component {
     const { newBook } = this.state
 
     return (
-      <div>
-        <h2>Sell a Book</h2>
-        <form onSubmit={this.submitBook}>
-          <label htmlFor="sellerName">Your Name</label>
-          <input type="text" name="sellerName" value={newBook.sellerName} onChange={this.handleInputChange} />
-          <label htmlFor="sellerEmail">Your Email</label>
-          <input type="text" name="sellerEmail" value={newBook.sellerEmail} onChange={this.handleInputChange} />
-          <label htmlFor="title">Book Title</label>
-          <input type="text" name="title" value={newBook.title} onChange={this.handleInputChange} />
-          <label htmlFor="author">Author(s)</label>
-          <input type="text" name="author" value={newBook.author} onChange={this.handleInputChange} />
-          <label htmlFor="isbn">ISBN</label>
-          <input type="text" name="isbn" value={newBook.isbn} onChange={this.handleInputChange} />
-          <label htmlFor="course">Course</label>
-          <input type="text" name="course" value={newBook.course} onChange={this.handleInputChange} />
-          <label htmlFor="description">Book Description</label>
-          <input type="text" name="description" value={newBook.description} onChange={this.handleInputChange} />
-          <input type="submit" />
-        </form>
+      <div className="content">
+        <div className="row">
+          <div className="card book-form">
+            <h2>Sell a Book</h2>
+            <form onSubmit={this.submitBook}>
+              <fieldset>
+                <label htmlFor="sellerName">Your Name</label>
+                <input type="text" name="sellerName" value={newBook.sellerName} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="sellerEmail">Your Email</label>
+                <input type="text" name="sellerEmail" value={newBook.sellerEmail} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="title">Book Title</label>
+                <input type="text" name="title" value={newBook.title} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="author">Author(s)</label>
+                <input type="text" name="author" value={newBook.author} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="isbn">ISBN</label>
+                <input type="text" name="isbn" value={newBook.isbn} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="course">Course</label>
+                <input type="text" name="course" value={newBook.course} onChange={this.handleInputChange} />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="description">Book Description</label>
+                <textarea type="text" name="description" value={newBook.description} onChange={this.handleInputChange} />
+              </fieldset>
+              <input type="submit" className="button-primary" />
+            </form>
+          </div>
+        </div>
       </div>
     )
   }

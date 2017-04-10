@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class AllBooks extends Component {
   componentWillMount() {
@@ -9,15 +10,22 @@ class AllBooks extends Component {
   render() {
     const bookList = this.state.bookList
     return (
-      <div>
-        <h2>All Books</h2>
-        <ul>
+      <div className="content">
+        <div className="book-list">
           {
             bookList.map(book => {
-              return <li key={book.id}>{book.title} ({book.author})</li>
+              const bookLink = `/book-details/${book.id}`
+              return (
+                <div key={book.id} className="card book-preview">
+                  <div className="text-block">
+                    <Link to={bookLink}><h2>{book.title}</h2></Link>
+                    <p>Author(s): {book.author}</p>
+                  </div>
+                </div>
+              )
             })
           }
-        </ul>
+        </div>
       </div>
     )
   }

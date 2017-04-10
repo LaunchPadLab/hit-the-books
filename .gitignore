@@ -9,10 +9,12 @@
 # production
 /build
 
+# css files
+src/**/*.css
+
 # misc
 .DS_Store
 .env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
