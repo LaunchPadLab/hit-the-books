@@ -53,9 +53,9 @@ class SellBook extends Component {
     const { newBook } = this.state
 
     return (
-      <div className="content">
+      <div className="content content-block-container with-sidebar">
         <div className="row">
-          <div className="card book-form">
+          <div className="card col-8">
             <h2>Sell a Book</h2>
             <form onSubmit={this.submitBook}>
               <fieldset>
@@ -86,7 +86,9 @@ class SellBook extends Component {
                 <label htmlFor="description">Book Description</label>
                 <textarea type="text" name="description" value={newBook.description} onChange={this.handleInputChange} />
               </fieldset>
-              <input type="submit" className="button-primary" />
+              <fieldset>
+                <input type="submit" className="button-primary" />
+              </fieldset>
             </form>
           </div>
         </div>
