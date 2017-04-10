@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
 class AllBooks extends Component {
-  componentWillMount() {
+  constructor (props) {
+    super(props)
+
     const bookData = [
       {
         id: 1,
@@ -34,8 +36,10 @@ class AllBooks extends Component {
         description: 'Introduces the Bossanova, which is today one of the best-known Brazilian music genres abroad.'
       }
     ]
-
-    this.setState({ bookList: bookData })
+    
+    this.state = {
+      bookList: bookData
+    }
   }
 
   render() {
