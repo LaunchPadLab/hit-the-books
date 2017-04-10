@@ -53,9 +53,9 @@ class SellBook extends Component {
     const { newBook } = this.state
 
     return (
-      <div className="content content-block-container">
+      <div className="content content-block-container with-sidebar">
         <div className="row">
-          <div className="card book-form">
+          <div className="card col-8">
             <h2>Sell a Book</h2>
             <form onSubmit={this.submitBook}>
               <fieldset>
