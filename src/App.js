@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, BrowserRouter, Link } from 'react-router-dom'
+import { Route, BrowserRouter, NavLink } from 'react-router-dom'
 import Homepage from './pages/homepage.js'
 import AllBooks from './pages/all-books.js'
 import AllStyles from './styleguide/views/all.js'
@@ -25,8 +25,8 @@ class App extends Component {
               <a href="/" className="logo link-white-base">Hit the Books</a>
               <nav>
                 <ul>
-                  <li><Link to="/all-books">View Books</Link></li>
-                  <li><Link to="/sell-books">Sell Books</Link></li>
+                  <li><NavLink to="/all-books" activeClassName="is-active">View Books</NavLink></li>
+                  <li><NavLink to="/sell-books" activeClassName="is-active">Sell Books</NavLink></li>
                 </ul>
               </nav>
             </div>
