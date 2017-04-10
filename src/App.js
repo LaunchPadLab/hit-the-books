@@ -10,7 +10,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <header>
-            <a href="/">Home</a>
+            <a href="/">Hit the Books</a>
             <nav>
               <ul>
                 <li><NavLink to="/all-books" activeClassName="is-active">View Books</NavLink></li>
