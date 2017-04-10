@@ -2,16 +2,20 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class BookDetails extends Component {
+  constructor (props) {
+    super(props)
+    
+    const book = this.fetchCurrentBook()
+    this.state = {
+      book: book
+    }
+  }
+  
   fetchCurrentBook () {
     const { params } = this.props.match
     const bookId = params.id
     const bookList = JSON.parse(localStorage.getItem('bookList'))
     return bookList.find((book) => book.id === parseInt(bookId, 10))
-  }
-
-  componentWillMount () {
-    const book = this.fetchCurrentBook()
-    this.setState({ book: book })
   }
 
   render () {
