@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 
 class AllBooks extends Component {
-  componentWillMount() {
+  constructor (props) {
+    super(props)
+
     const bookList = JSON.parse(localStorage.getItem('bookList'))
-    this.setState({ bookList: bookList })
+    this.state = {
+      bookList: bookList
+    }
   }
 
   render() {
