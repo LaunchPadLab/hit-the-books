@@ -138,12 +138,8 @@ module.exports = {
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?importLoaders=1!postcss',
-          extractTextPluginOptions
-        )
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass')
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
@@ -162,6 +158,13 @@ module.exports = {
       }
       // ** STOP ** Are you adding a new loader?
       // Remember to add the new extension(s) to the "url" loader exclusion list.
+    ]
+  },
+  
+  sassLoader: {
+    includePaths: [
+      paths.bourbon,
+      paths.bourbonNeat
     ]
   },
 
