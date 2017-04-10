@@ -22,7 +22,7 @@ class App extends Component {
         <div>
           <header className="navigation">
             <div className="content-block-container">
-              <a href="/" className="logo link-white-base"><img src="/logo.svg"/></a>
+              <a href="/" className="logo link-white-base">Hit the Books</a>
               <nav>
                 <ul>
                   <li><Link to="/all-books">View Books</Link></li>

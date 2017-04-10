@@ -25,7 +25,7 @@ class BookDetails extends Component {
     } = this.state.book
 
     return (
-      <div className="content content-block-container">
+      <div className="content content-block-container with-sidebar">
         <div className="row">
           <div className="card col-6">
             <h2>{ title }</h2>
@@ -53,7 +53,7 @@ class BookDetails extends Component {
             </table>
           </div>
           
-          <div className="card col-3">
+          <div className="card col-3 interested">
             <h2>Interested?</h2>
             <p>Negotiate your price and get the book you need fast.</p>
             <a href={`mailto:${sellerEmail}`} className="button-primary">Contact Seller</a>
