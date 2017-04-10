@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 class AllBooks extends Component {
   componentWillMount() {
@@ -14,11 +13,10 @@ class AllBooks extends Component {
         <div className="book-list">
           {
             bookList.map(book => {
-              const bookLink = `/book-details/${book.id}`
               return (
                 <div key={book.id} className="card book-preview">
                   <div className="text-block">
-                    <Link to={bookLink}><h2>{book.title}</h2></Link>
+                    <h2>{book.title}</h2>
                     <p>Author(s): {book.author}</p>
                   </div>
                 </div>
