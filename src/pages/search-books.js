@@ -40,26 +40,37 @@ class SearchBooks extends Component {
     const { filteredBooks, query } = this.state
 
     return (
-      <div>
-        <input
-          placeholder="What are you looking for?"
-          style={{ width: '200px' }}
-          value={query}
-          onChange={this.handleChange}
-        />
+      <div className="content">
+        <div className="search-block">
+          <div className="content-block-container">
+            <label>SEARCH</label>
+            <input
+              placeholder="What are you looking for?"
+              value={query}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
 
-        <ul>
-          {
-            filteredBooks.map(book => {
-              const bookLink = `/book-details/${book.id}`
-              return (
-                <li key={book.id}>
-                  <Link to={bookLink}>{book.title}</Link> ({book.author})
-                </li>
-              );
-            })
-          }
-        </ul>
+        <div className="content-block-container">
+          <div className="book-list">
+            <ul>
+              {
+                filteredBooks.map(book => {
+                  const bookLink = `/book-details/${book.id}`
+                  return (
+                    <div key={book.id} className="card book-preview">
+                      <div className="text-block">
+                        <Link to={bookLink}><h2>{book.title}</h2></Link>
+                        <p>Author(s): {book.author}</p>
+                      </div>
+                    </div>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     )
   }

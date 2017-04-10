@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Route, BrowserRouter, Link } from 'react-router-dom'
-import './App.css'
+import { Route, BrowserRouter, NavLink } from 'react-router-dom'
 import Homepage from './pages/homepage.js'
 import AllBooks from './pages/all-books.js'
+import AllStyles from './styleguide/views/all.js'
+import Sandbox from './styleguide/views/sandbox.js'
 import SellBook from './pages/sell-book.js'
 import BookDetails from './pages/book-details.js'
 import SearchBooks from './pages/search-books.js'
@@ -20,21 +21,24 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <header>
-            <a href="/">Home</a>
-            <nav>
-              <ul>
-                <li><Link to="/all-books">View Books</Link></li>
-                <li><Link to="/sell-book">Sell Books</Link></li>
-                <li><Link to="/search">Buy Books</Link></li>
-              </ul>
-            </nav>
+          <header className="navigation">
+            <div className="content-block-container">
+              <a href="/" className="logo link-white-base">Hit the Books</a>
+              <nav>
+                <ul>
+                  <li><NavLink to="/sell-books" activeClassName="is-active">Sell Books</NavLink></li>
+                  <li><NavLink to="/search" activeClassName="is-active">Buy Books</NavLink></li>
+                </ul>
+              </nav>
+            </div>
           </header>
-          <Route exact path="/" component={ Homepage } />
+          <Route exact path="/" component={ Homepage }/>
           <Route path="/all-books" component={ AllBooks }/>
-          <Route path="/sell-book" component={ SellBook }/>
+          <Route path="/sell-books" component={ SellBook }/>
           <Route path="/book-details/:id" component={ BookDetails }/>
           <Route path="/search" component={ SearchBooks }/>
+          <Route path="/styleguide/all" component={ AllStyles } />
+          <Route path="/styleguide/sandbox" component={ Sandbox } />
         </div>
       </BrowserRouter>
     )

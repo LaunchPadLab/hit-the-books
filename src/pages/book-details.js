@@ -26,21 +26,40 @@ class BookDetails extends Component {
     } = this.state.book
 
     return (
-      <div>
-        <Link to="/search">Back to Search</Link>
-        <h2>{ title }</h2>
-        <ul>
-          <li>Author(s): { author }</li>
-          <li>ISBN: { isbn }</li>
-          <li>Course: { course }</li>
-          <li>Description: { description }</li>
-          <li>Seller Name: { sellerName }</li>
-        </ul>
-
-        <div>
-          <h2>Interested?</h2>
-          <p>Negotiate your price and get the book you need fast.</p>
-          <a href={`mailto:${sellerEmail}`}>Contact Seller</a>
+      <div className="content content-block-container with-sidebar">
+        <Link to="/search" className="back-link">Back to Search</Link>
+        <div className="row">
+          <div className="card col-6">
+            <h2>{ title }</h2>
+            <table>
+              <tr>
+                <td><p>Seller Name:</p></td>
+                <td><p>{ sellerName }</p></td>
+              </tr>
+              <tr>
+                <td><p>Author(s):</p></td>
+                <td><p>{ author }</p></td>
+              </tr>
+              <tr>
+                <td><p>ISBN:</p></td>
+                <td><p>{ isbn }</p></td>
+              </tr>
+              <tr>
+                <td><p>Course:</p></td>
+                <td><p>{ course }</p></td>
+              </tr>
+              <tr>
+                <td><p>Desciption:</p></td>
+                <td><p>{ description }</p></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div className="card col-3 interested">
+            <h2>Interested?</h2>
+            <p>Negotiate your price and get the book you need fast.</p>
+            <a href={`mailto:${sellerEmail}`} className="button-primary">Contact Seller</a>
+          </div>
         </div>
       </div>
     )
