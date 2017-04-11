@@ -6,7 +6,6 @@ import AllStyles from './styleguide/views/all.js'
 import Sandbox from './styleguide/views/sandbox.js'
 import SellBook from './pages/sell-book.js'
 import BookDetails from './pages/book-details.js'
-import SearchBooks from './pages/search-books.js'
 import { bookData } from './book-data'
 
 class App extends Component {
@@ -27,7 +26,7 @@ class App extends Component {
               <nav>
                 <ul>
                   <li><NavLink to="/sell-books" activeClassName="is-active">Sell Books</NavLink></li>
-                  <li><NavLink to="/search" activeClassName="is-active">Buy Books</NavLink></li>
+                  <li><NavLink to="/all-books" activeClassName="is-active">Buy Books</NavLink></li>
                 </ul>
               </nav>
             </div>
@@ -36,7 +35,6 @@ class App extends Component {
           <Route path="/all-books" component={ AllBooks }/>
           <Route path="/sell-books" component={ SellBook }/>
           <Route path="/book-details/:id" component={ BookDetails }/>
-          <Route path="/search" component={ SearchBooks }/>
           <Route path="/styleguide/all" component={ AllStyles } />
           <Route path="/styleguide/sandbox" component={ Sandbox } />
         </div>
